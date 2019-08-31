@@ -1,11 +1,3 @@
-import kotlin.math.max
-
-//    I = 1
-//    V = 5
-//    X = 10
-//    L = 50
-//    C = 100
-
 /*
 fun main(){
    println(isRomanNumber("XCIX"))
@@ -16,23 +8,13 @@ val romanLiteralsMap = mapOf("I" to 1, "X" to 10, "C" to 100, "V" to 5, "L" to 5
 
 fun isRomanNumber(i_RomanNumber : String) : Boolean {
 
-    if( isInvalidInput(i_RomanNumber))
+    if(    isInvalidInput(i_RomanNumber)
+        || haveMoreThanOnceLoV(i_RomanNumber)
+        || haveThreeInRowIoXoC(i_RomanNumber)
+        || lesserNumberNotFollowBiggerNumber(i_RomanNumber))
     {
         return false
     }
-    if(HaveMoreThanOnceLoV(i_RomanNumber)){
-        return false
-    }
-    if(HaveThreeInRowIoXoC(i_RomanNumber)){
-        return false
-    }
-
-    if(LesserNumberNotFollowBiggerNumber(i_RomanNumber))
-    {
-        return false
-    }
-
-
 
     return true
 }
@@ -53,7 +35,7 @@ fun isInvalidInput(i_Romannumber: String): Boolean {
 }
 
 // check if Have More Than Once L Or V
-fun HaveMoreThanOnceLoV(i_RomanNumber: String) : Boolean{
+fun haveMoreThanOnceLoV(i_RomanNumber: String) : Boolean{
     var flagL : Boolean = false
     var flagV : Boolean = false
 
@@ -82,7 +64,7 @@ fun HaveMoreThanOnceLoV(i_RomanNumber: String) : Boolean{
 }
 
 //check if Have Three In a Row I or X or C
-fun HaveThreeInRowIoXoC(i_RomanNumber: String) : Boolean
+fun haveThreeInRowIoXoC(i_RomanNumber: String) : Boolean
 {
     if(i_RomanNumber.contains("IIII") || i_RomanNumber.contains("XXXX") || i_RomanNumber.contains("CCCC"))
     {
@@ -94,7 +76,7 @@ fun HaveThreeInRowIoXoC(i_RomanNumber: String) : Boolean
 
 //check if Lesser Number Follow Bigger Number,
 //and if not check if the Lesser is X or I, and appear once
-fun LesserNumberNotFollowBiggerNumber(i_RomanNumber: String): Boolean
+fun lesserNumberNotFollowBiggerNumber(i_RomanNumber: String): Boolean
 {
     var i : Int = 0
 
